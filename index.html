@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>HR-Генератор ответов | Пошаговый помощник</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-container">
+    <header>
+      <h1>🎙️ HR-Генератор ответов</h1>
+      <p>Пошаговая настройка → генерация реалистичного ответа кандидата</p>
+    </header>
+
+    <!-- Шаг 1: выбор режима -->
+    <div id="step1" class="step-card">
+      <h2>Шаг 1. Режим работы</h2>
+      <div class="mode-buttons">
+        <button class="mode-option" data-mode="local">📁 Локальный (бесплатно, без API)</button>
+        <button class="mode-option" data-mode="api">🤖 AI-режим (нужен API ключ)</button>
+      </div>
+      <div id="apiSettings" style="display: none;">
+        <p>🔑 Введите API ключ (DeepSeek или OpenAI)</p>
+        <input type="password" id="apiKey" placeholder="sk-...">
+        <select id="apiProvider">
+          <option value="deepseek">DeepSeek (рекомендуется)</option>
+          <option value="openai">OpenAI GPT-3.5</option>
+        </select>
+        <button id="saveApiBtn">💾 Сохранить ключ</button>
+        <span id="apiStatus"></span>
+      </div>
+      <button id="nextToStep2" class="next-btn" disabled>Далее →</button>
+    </div>
+
+    <!-- Шаг 2: параметры кандидата -->
+    <div id="step2" class="step-card" style="display: none;">
+      <h2>Шаг 2. Параметры кандидата</h2>
+      <div class="form-row">
+        <label>Должность</label>
+        <select id="position">
+          <option value="frontend">Frontend-разработчик</option>
+          <option value="backend">Backend-разработчик</option>
+          <option value="fullstack">Fullstack-разработчик</option>
+          <option value="devops">DevOps-инженер</option>
+          <option value="qa">QA-инженер</option>
+          <option value="designer">UI/UX-дизайнер</option>
+          <option value="pm">Project Manager</option>
+        </select>
+      </div>
+      <div class="form-row">
+        <label>Уровень</label>
+        <select id="seniority">
+          <option value="junior">Junior</option>
+          <option value="middle" selected>Middle</option>
+          <option value="senior">Senior</option>
+          <option value="lead">Team Lead</option>
+        </select>
+      </div>
+      <div class="form-row">
+        <label>Стиль ответа</label>
+        <select id="style">
+          <option value="confident">Уверенный</option>
+          <option value="modest">Скромный</option>
+          <option value="technical">Технический</option>
+        </select>
+      </div>
+      <div class="step-buttons">
+        <button id="backToStep1" class="secondary-btn">← Назад</button>
+        <button id="nextToStep3" class="next-btn">Далее →</button>
+      </div>
+    </div>
+
+    <!-- Шаг 3: вопрос и генерация (отдельное окно) -->
+    <div id="step3" class="step-card" style="display: none;">
+      <h2>Шаг 3. Вопрос кандидату</h2>
+      <textarea id="questionInput" rows="4" placeholder="Например: Расскажите о самом сложном баге, который вы исправляли..."></textarea>
+      <div class="quick-questions">
+        <span>📋 Быстрые шаблоны:</span>
+        <select id="quickSelect">
+          <option value="">-- Выберите --</option>
+          <option value="exp">Расскажите о вашем опыте</option>
+          <option value="challenge">Самая сложная задача</option>
+          <option value="conflict">Конфликт в команде</option>
+          <option value="motivation">Почему вы хотите работать у нас?</option>
+        </select>
+        <button id="useQuickBtn">Вставить</button>
+      </div>
+      <button id="generateAnswerBtn" class="primary-btn">✨ Сгенерировать ответ</button>
+      
+      <!-- Отдельное окно с ответом -->
+      <div class="answer-window">
+        <h3>📌 Ответ кандидата</h3>
+        <div id="answerContent" class="answer-content">
+          <span class="placeholder">Здесь появится ответ после генерации...</span>
+        </div>
+        <div class="answer-actions">
+          <button id="copyAnswerBtn">📋 Скопировать</button>
+          <button id="regenerateBtn">🔄 Другой вариант</button>
+          <button id="saveToHistoryBtn">💾 Сохранить в историю</button>
+        </div>
+      </div>
+
+      <!-- История (свёрнутая, не мешает) -->
+      <details class="history-section">
+        <summary>📜 История сохранённых ответов</summary>
+        <div id="historyList"></div>
+        <div class="history-buttons">
+          <button id="exportHistoryBtn">📎 Экспорт</button>
+          <button id="clearHistoryBtn">🗑️ Очистить</button>
+        </div>
+      </details>
+      
+      <div class="step-buttons">
+        <button id="backToStep2" class="secondary-btn">← Назад (изменить параметры)</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

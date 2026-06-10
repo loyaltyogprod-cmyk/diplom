@@ -1,0 +1,270 @@
+:root {
+  --bg-body: #0b0e14;
+  --bg-card: #161c27;
+  --bg-input: #1f2a3a;
+  --text: #eef2ff;
+  --text-muted: #8d9bb0;
+  --accent: #3b82f6;
+  --accent-hover: #60a5fa;
+  --border: #2a3442;
+  --success: #10b981;
+  --danger: #ef4444;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--bg-body);
+  font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  color: var(--text);
+  line-height: 1.5;
+  padding: 2rem 1rem;
+}
+
+.app-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+h1 {
+  font-size: 1.8rem;
+  font-weight: 600;
+  background: linear-gradient(135deg, #fff, var(--accent));
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  margin-bottom: 0.5rem;
+}
+
+header p {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+.step-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 1.5rem;
+  padding: 1.75rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 10px 25px -5px rgba(0,0,0,0.3);
+  transition: all 0.2s;
+}
+
+.step-card h2 {
+  font-size: 1.4rem;
+  margin-bottom: 1.25rem;
+  border-left: 4px solid var(--accent);
+  padding-left: 0.75rem;
+}
+
+.mode-buttons {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.mode-option {
+  background: var(--bg-input);
+  border: 1px solid var(--border);
+  padding: 0.7rem 1.2rem;
+  border-radius: 2rem;
+  font-size: 1rem;
+  cursor: pointer;
+  color: var(--text);
+  transition: 0.2s;
+  flex: 1;
+}
+
+.mode-option:hover {
+  background: var(--accent);
+  border-color: var(--accent);
+}
+
+#apiSettings {
+  background: var(--bg-input);
+  border-radius: 1rem;
+  padding: 1rem;
+  margin: 1rem 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+#apiKey, #apiProvider {
+  background: var(--bg-body);
+  border: 1px solid var(--border);
+  padding: 0.5rem 1rem;
+  border-radius: 1rem;
+  color: var(--text);
+  font-family: inherit;
+  flex: 1;
+}
+
+button {
+  background: var(--bg-input);
+  border: 1px solid var(--border);
+  padding: 0.5rem 1.2rem;
+  border-radius: 2rem;
+  font-family: inherit;
+  font-size: 0.9rem;
+  cursor: pointer;
+  color: var(--text);
+  transition: 0.2s;
+}
+
+button:hover {
+  background: var(--accent);
+  border-color: var(--accent);
+}
+
+.next-btn, .primary-btn {
+  background: var(--accent);
+  border-color: var(--accent);
+  font-weight: 600;
+}
+
+.next-btn:hover, .primary-btn:hover {
+  background: var(--accent-hover);
+}
+
+.secondary-btn {
+  background: transparent;
+  border-color: var(--border);
+}
+
+.form-row {
+  margin-bottom: 1.25rem;
+}
+
+label {
+  display: block;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-bottom: 0.3rem;
+}
+
+select, textarea {
+  width: 100%;
+  background: var(--bg-input);
+  border: 1px solid var(--border);
+  border-radius: 1rem;
+  padding: 0.6rem 1rem;
+  font-family: inherit;
+  font-size: 0.9rem;
+  color: var(--text);
+}
+
+textarea {
+  resize: vertical;
+}
+
+.quick-questions {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 1rem 0;
+}
+
+.quick-questions select {
+  width: auto;
+  flex: 2;
+}
+
+.step-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1.5rem;
+  gap: 1rem;
+}
+
+.answer-window {
+  background: var(--bg-input);
+  border-radius: 1.25rem;
+  padding: 1.25rem;
+  margin: 1.5rem 0;
+  border: 1px solid var(--border);
+}
+
+.answer-content {
+  background: var(--bg-body);
+  border-radius: 1rem;
+  padding: 1rem;
+  min-height: 100px;
+  margin: 0.75rem 0;
+  white-space: pre-wrap;
+  font-size: 0.95rem;
+}
+
+.placeholder {
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+.answer-actions {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+}
+
+.history-section {
+  margin-top: 1.5rem;
+  background: var(--bg-input);
+  border-radius: 1rem;
+  padding: 0.5rem;
+}
+
+summary {
+  font-weight: 600;
+  cursor: pointer;
+  color: var(--accent);
+  padding: 0.5rem;
+}
+
+#historyList {
+  max-height: 200px;
+  overflow-y: auto;
+  margin: 0.5rem 0;
+}
+
+.history-item {
+  background: var(--bg-body);
+  border-radius: 0.8rem;
+  padding: 0.75rem;
+  margin-bottom: 0.5rem;
+  font-size: 0.85rem;
+}
+
+.history-buttons {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: flex-end;
+}
+
+@media (max-width: 600px) {
+  body {
+    padding: 1rem;
+  }
+  .mode-buttons {
+    flex-direction: column;
+  }
+  .step-buttons {
+    flex-direction: column;
+  }
+  .step-buttons button {
+    width: 100%;
+  }
+}
