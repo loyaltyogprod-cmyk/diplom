@@ -1,12 +1,12 @@
 :root {
-  --bg-body: #0b0e14;
-  --bg-card: #161c27;
-  --bg-input: #1f2a3a;
-  --text: #eef2ff;
-  --text-muted: #8d9bb0;
+  --bg-body: #ffffff;
+  --bg-card: #f8fafc;
+  --bg-input: #f1f5f9;
+  --text: #0f172a;
+  --text-muted: #475569;
   --accent: #3b82f6;
-  --accent-hover: #60a5fa;
-  --border: #2a3442;
+  --accent-hover: #2563eb;
+  --border: #e2e8f0;
   --success: #10b981;
   --danger: #ef4444;
 }
@@ -38,7 +38,7 @@ header {
 h1 {
   font-size: 1.8rem;
   font-weight: 600;
-  background: linear-gradient(135deg, #fff, var(--accent));
+  background: linear-gradient(135deg, #0f172a, var(--accent));
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent;
@@ -56,7 +56,7 @@ header p {
   border-radius: 1.5rem;
   padding: 1.75rem;
   margin-bottom: 2rem;
-  box-shadow: 0 10px 25px -5px rgba(0,0,0,0.3);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.02);
   transition: all 0.2s;
 }
 
@@ -89,6 +89,7 @@ header p {
 .mode-option:hover {
   background: var(--accent);
   border-color: var(--accent);
+  color: white;
 }
 
 #apiSettings {
@@ -127,12 +128,14 @@ button {
 button:hover {
   background: var(--accent);
   border-color: var(--accent);
+  color: white;
 }
 
 .next-btn, .primary-btn {
   background: var(--accent);
   border-color: var(--accent);
   font-weight: 600;
+  color: white;
 }
 
 .next-btn:hover, .primary-btn:hover {
